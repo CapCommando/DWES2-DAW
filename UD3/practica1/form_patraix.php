@@ -1,15 +1,46 @@
-<?php
-include 'datos_patraix.php';
-echo 'Bienvenido '.$nombre .$apellido'!';
-echo '<h1>CONSULTE DATOS POR BARRIOS(DISTRITO DE PATRAIX)</h1>';
-echo '<p>DISTRITO:</p><br><form><select name="distritos">
-<option value="" selected="Patraix"></option>
-foreach($datos_patrix as $pat => $valor){
-    $pat = htmlspecialchars($pat); 
-    }
-</select>
-<input type="submit" value="consultar">
-</form>'
-echo '<a href="index.html">Volver</a>';
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Consulta datos de distritos
+        </title>
+    </head>
+    <body>
+        <?php
+            $nombre = $_GET['nombre'];
+            $apellidos = $_GET['apellidos'];
+            echo '<h3>¡Bienvenido, ' . $nombre . ' ' . $apellidos . '!</h3>';
+        ?> 
 
-?>
+        <h2>Consulta datos por distritos</h2>
+
+        <form name = "form1" method = "get" action="distritos_ctl.php">
+            <p>Distrito:
+                <?php
+                    include 'datos_patraix.php';
+
+                    echo '<select name="distrito">';
+                    foreach ($datos_distritos as $barrio => $poblacion) {
+                        if ($barrio == 'Patraix'){
+                            echo '<option value="' . $barrio . '" selected>' . $barrio . '</option>';
+                        } else {
+                            echo '<option value="' . $barrio . '">' . $barrio . '</option>';
+                        }
+                    }
+                    echo '</select>'; 
+            ?>
+            </p>
+            <p>
+                <input type="checkbox" name="muestra_todo"> Mostrar todos los distritos <br>
+            </p>   
+            <p>
+                <input type="submit" name="Submit" value="Consultar">
+            </p>
+            </form>
+
+
+            <?php
+                echo '<br><br><a href="menu.php?nombre=' . $nombre . '&apellidos=' . $apellidos . '">Volver</a>';
+            ?>
+    </body>
+</html>
