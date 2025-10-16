@@ -1,7 +1,7 @@
 <?php
 $nombre=$_POST["nombre"];
 $apellido=$_POST["apellido"];
-$dniValidos= array("1000000A","2000000B","3000000B");
+$dniValidos= array("10000000A","20000000B","30000000B");
 $dniRecibido=$_POST["dni"];
 $boleano=false;
 foreach($dniValidos as $busca){
