@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Consulta datos de distritos
+            Consulta datos de Barrios
         </title>
     </head>
     <body>
@@ -12,10 +12,10 @@
             echo '<h3>¡Bienvenido, ' . $nombre . ' ' . $apellidos . '!</h3>';
         ?> 
 
-        <h2>Consulta datos por distritos</h2>
+        <h2>Consulta datos por Barrios(Distrito de Patraix)</h2>
 
         <form name = "form1" method = "get" action="distritos_ctl.php">
-            <p>Distrito:
+            <p>Barrio:
                 <?php
                     include 'datos_patraix.php';
 
@@ -31,7 +31,7 @@
             ?>
             </p>
             <p>
-                <input type="checkbox" name="muestra_todo"> Mostrar todos los distritos <br>
+                <input type="checkbox" name="muestra_todo"> Mostrar todos los Barrios <br>
             </p>   
             <p>
                 <input type="submit" name="Submit" value="Consultar">
